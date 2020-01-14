@@ -16,6 +16,29 @@ public class BlackJackPrototype {
         boolean raundoPabaiga = false;
         boolean blackJack = false;
 
+        for (int i = 2; i <= 11; i++) {
+            if (i < 10 || i == 11) {
+                for (int j = 0; j < 4; j++) {
+                    card.add(i);
+                }
+            } else {
+                for (int j = 0; j < 16; j++) {
+                    card.add(i);
+                }
+            }
+        }
+
+        ArrayList<Integer> nkortos = new ArrayList<Integer>();
+        Random random = new Random();
+        int index;
+        int size = card.size();
+        for (int i = 0; i < size; i++) {
+            index = random.nextInt(card.size());
+            nkortos.add(card.get(index));
+            card.remove(index);
+        }
+        card = nkortos;
+
         while (true) {
             try {
                 if (pinigai == 0) {
@@ -35,45 +58,21 @@ public class BlackJackPrototype {
                     System.out.println("Viso geriausio!");
                     break;
                 }
-                //add cards to deck
-                for (int i = 2; i <= 11; i++) {
-                    if (i < 10 || i == 11) {
-                        for (int j = 0; j < 4; j++) {
-                            card.add(i);
-                        }
-                    } else {
-                        for (int j = 0; j < 16; j++) {
-                            card.add(i);
-                        }
-                    }
-                }
-                // shuffle cards
-                ArrayList<Integer> nkortos = new ArrayList<Integer>();
-                Random random = new Random();
-                int index;
-                int size = card.size();
-                for (int i = 0; i < size; i++) {
-                    index = random.nextInt(card.size());
-                    nkortos.add(card.get(index));
-                    card.remove(index);
-                }
-                card = nkortos;
-                
 
                 for (int i = 0; i <= 1; i++) {
                     card.remove(i);
                     dilerioKortos.add(card.get(i));
-                    //TODO prideti kortos verte prie dilierio tasku
+                    dilerioTaskai += card.get(i);
                 }
 
                 for (int i = 0; i <= 1; i++) {
                     card.remove(i);
                     klientoKortos.add(card.get(i));
-                    //TODO prideti kortos verte prie kliento tasku
+                    klientoTaskai += card.get(i);
                 }
 
                 System.out.println("Dilerio korta: " + dilerioKortos.get(0));
-                System.out.println("Jusu kortos: " + klientoKortos);
+                
 
                 if (klientoTaskai == 21) {
                     System.out.println("BlackJack");
@@ -89,7 +88,7 @@ public class BlackJackPrototype {
                             for (int i = 0; i <= 0; i++) {
                                 card.remove(i);
                                 klientoKortos.add(card.get(i));
-                                //TODO add points
+                                klientoTaskai += card.get(i);
                             }
                             if (klientoTaskai > 21) {
                                 System.out.println("Jus pralaimejote, nes turite " + klientoTaskai + " tasku");
@@ -112,7 +111,7 @@ public class BlackJackPrototype {
                     for (int i = 0; i <= 1; i++) {
                         card.remove(i);
                         dilerioKortos.add(card.get(i));
-                        //TODO update dealerpoints
+                        dilerioTaskai += card.get(i);
                     }
                 }
 
@@ -145,7 +144,8 @@ public class BlackJackPrototype {
                 if (klientoTaskai == dilerioTaskai && raundoPabaiga == false) {
                     System.out.println("Lygiosios");
                 }
-
+               
+                System.out.println("");
 
                 System.out.println("");
             } catch (Exception e) {
