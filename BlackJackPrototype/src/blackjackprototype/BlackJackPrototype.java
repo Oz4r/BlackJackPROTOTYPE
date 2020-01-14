@@ -62,13 +62,13 @@ public class BlackJackPrototype {
 
                 for (int i = 0; i <= 1; i++) {
                     card.remove(i);
-                    //TODO prideti pasirinkta korta is shuffled deck
+                    dilerioKortos.add(card.get(i));
                     //TODO prideti kortos verte prie dilierio tasku
                 }
 
                 for (int i = 0; i <= 1; i++) {
                     card.remove(i);
-                    //TODO prideti pasirinkta korta is shuffled deck
+                    klientoKortos.add(card.get(i));
                     //TODO prideti kortos verte prie kliento tasku
                 }
 
@@ -87,7 +87,9 @@ public class BlackJackPrototype {
                         if (ats1 == 1) {
 
                             for (int i = 0; i <= 0; i++) {
-                                //TODO
+                                card.remove(i);
+                                klientoKortos.add(card.get(i));
+                                //TODO add points
                             }
                             if (klientoTaskai > 21) {
                                 System.out.println("Jus pralaimejote, nes turite " + klientoTaskai + " tasku");
@@ -108,8 +110,9 @@ public class BlackJackPrototype {
                 }
                 while (dilerioTaskai <= 16) {
                     for (int i = 0; i <= 1; i++) {
-                        //TODO
-
+                        card.remove(i);
+                        dilerioKortos.add(card.get(i));
+                        //TODO update dealerpoints
                     }
                 }
 
