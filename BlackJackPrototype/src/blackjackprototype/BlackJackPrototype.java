@@ -42,7 +42,7 @@ public class BlackJackPrototype {
         while (true) {
             try {
                 if (pinigai == 0) {
-                    System.out.println("Jus neturite daugiau pinigu. Viso geriausio!");
+                    System.out.println("Jus neturite daugiau pinigu");
                     break;
                 }
                 System.out.println("Jus turite: " + pinigai + "€");
@@ -72,7 +72,6 @@ public class BlackJackPrototype {
                 }
 
                 System.out.println("Dilerio korta: " + dilerioKortos.get(0));
-                
 
                 if (klientoTaskai == 21) {
                     System.out.println("BlackJack");
@@ -144,9 +143,20 @@ public class BlackJackPrototype {
                 if (klientoTaskai == dilerioTaskai && raundoPabaiga == false) {
                     System.out.println("Lygiosios");
                 }
-               
-                System.out.println("");
 
+                while (klientoTaskai > 0) {
+                    int k = klientoKortos.get(0);
+                    klientoKortos.remove(0);
+                    card.add(klientoKortos.get(0));
+                    klientoTaskai -= k;
+                    
+                }
+                while (dilerioTaskai > 0) {
+                    int l = dilerioKortos.get(0);
+                    dilerioKortos.remove(0);
+                    card.add(dilerioKortos.get(0));
+                    dilerioTaskai -= l;
+                }
                 System.out.println("");
             } catch (Exception e) {
                 System.out.println("Ivyko klaida");
