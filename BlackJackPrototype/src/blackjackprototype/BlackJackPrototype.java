@@ -146,15 +146,15 @@ public class BlackJackPrototype {
 
                 while (klientoTaskai > 0) {
                     int k = klientoKortos.get(0);
-                    klientoKortos.remove(0);
                     card.add(klientoKortos.get(0));
+                    klientoKortos.remove(0);
                     klientoTaskai -= k;
                     
                 }
                 while (dilerioTaskai > 0) {
                     int l = dilerioKortos.get(0);
-                    dilerioKortos.remove(0);
                     card.add(dilerioKortos.get(0));
+                    dilerioKortos.remove(0);
                     dilerioTaskai -= l;
                 }
                 System.out.println("");
