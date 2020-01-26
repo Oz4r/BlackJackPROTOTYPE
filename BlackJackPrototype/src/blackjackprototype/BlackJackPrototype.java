@@ -13,8 +13,7 @@ public class BlackJackPrototype {
         int pinigai = 500;
         int klientoTaskai = 0;
         int dilerioTaskai = 0;
-        boolean raundoPabaiga = false;
-        boolean blackJack = false;
+       
 
         for (int i = 2; i <= 11; i++) {
             if (i < 10 || i == 11) {
@@ -58,6 +57,9 @@ public class BlackJackPrototype {
                     System.out.println("Viso geriausio!");
                     break;
                 }
+                
+                 boolean raundoPabaiga = false;
+                 boolean blackJack = false;
 
                 for (int i = 0; i <= 1; i++) {
                     card.remove(i);
