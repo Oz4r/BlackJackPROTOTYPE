@@ -86,11 +86,11 @@ public class BlackJackPrototype {
                         ats1 = klaviatura.nextInt();
                         if (ats1 == 1) {
 
-                            for (int i = 0; i <= 0; i++) {
-                                card.remove(i);
-                                klientoKortos.add(card.get(i));
-                                klientoTaskai += card.get(i);
-                            }
+                            
+                                card.remove(0);
+                                klientoKortos.add(card.get(0));
+                                klientoTaskai += card.get(0);
+                            
                             if (klientoTaskai > 21) {
                                 System.out.println("Jus pralaimejote, nes turite " + klientoTaskai + " tasku");
                                 pinigai -= losejoStatymas;
